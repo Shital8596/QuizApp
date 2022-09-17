@@ -1,38 +1,202 @@
-.App {
+.App{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #020230;
+  color: white;
+}
+.Menu, .endScreen{
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  background-color: lightseagreen;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main{
+  width: 100%;
+  position: relative;
+}
+.title{
+  font-size: 50px;
+  margin-bottom: 70px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.showScore{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 5px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  top: 10%;
+  right: 100px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.childContainer{
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+}
+.question{
+  width: 70%;
+  height: auto;
+  background-color: rgb(182, 136, 22);
+  color:#020230;
+  border: 2px solid white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+.answers{
+  width: 80%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+}
+.ans{
+  width: 35%;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(182, 136, 22);
+  color:#020230;
+  font-weight: 400;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 40px 10px 20px 10px;
+  cursor: pointer;
+}
+.correct{
+  width: 35%;
+  padding: 10px;
+  text-align: center;
+  color:#020230;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 40px 10px 20px 10px;
+  cursor: pointer;
+  background: rgb(92, 239, 92);
+  pointer-events: none;
+}
+
+
+.wrong{
+  width: 35%;
+  padding: 10px;
+  text-align: center;
+  color:#020230;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 40px 10px 20px 10px;
+  cursor: pointer;
+  background: crimson;
+  pointer-events: none;
+}
+.btnDiv{
+  display: flex;
+}
+.finishBtn{
+  width: 150px;
+  height: 40px;
+  padding: 5px;
+  background-color: rgb(71, 73, 77);
+  margin: 5px;
+  border: none;
   color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.Menu select{
+  width: 60%;
+}
+.menuDiv{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (max-width:700px) {
+  .question{
+    width:150%;
+    font-size: 200%;
+    background:none;
+    border: none;
+    color:  rgb(182, 136, 22);
+  }
+  .main, .endScreen{
+    width: 300px;
+    height: 300px;
+    margin-bottom: 40px;
+  }
+  .answers{
+    width: 100%;
+    font-size: 150%;
+    flex-direction: column;
+    margin: 0px;
+  }
+  .App{
+    width: 100%;
+  }
+  .menuDiv{
+    font-size: 160%;
+    margin-bottom: 80px;
+  }
+  .showScore{
+    position: absolute;
+    top:10%;
+    left: 45%;
+    width: 70px;
+    height: 70px;
+    font-size:20px ;
+  }
+  .childContainer{
+    margin-top: 80px;
+    width: 100%;
+  }
+  .ans{
+    width: 100%;
+    font-size: 100%;
+    margin:5px;
+    background-color: rgb(182, 136, 22);;
+    border: none;
+    color: white;
+  }
+ .ans:last-child{
+  margin-bottom: 50px;
+ }
+.correct{
+  background: rgb(92, 239, 92);
+}
+.wrong{
+  background: crimson;
+}
+#back{
+  font-size: 25px;
+}
+#next{
+  font-size: 25px;
+}
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
