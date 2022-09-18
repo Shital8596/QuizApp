@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import useAxios from '../hooks/useAxios'
+import { NavLink } from 'react-router-dom';
 import { QuizContext } from './Context';
 import {Box} from "@mui/system"
 import {CircularProgress} from "@mui/material"
@@ -102,7 +103,9 @@ function GetQuestions() {
         <div>
             {
                 (questionIndex === response?.results.length-1) ? (
+                  <NavLink to="/endScreen">
                     <button className='finishBtn' onClick={finishQuiz}>Finish Quiz</button>
+                  </NavLink>
                 ) : (
                     (questionIndex === 0) ?
                         <div className='btnDiv'>

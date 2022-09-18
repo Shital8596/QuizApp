@@ -1,4 +1,5 @@
 import React,{useContext} from 'react'
+import { NavLink } from 'react-router-dom'
 import { QuizContext } from './Context'
 import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
@@ -13,7 +14,9 @@ function EndScreen() {
     <div className='endScreen'>
         <h1>Your Score</h1>
         <h2 style={{"textAlign":"center"}}>{score}</h2>
-        <button className='btn btn-secondary' onClick={moveToSetting}>Retry</button>
+        <NavLink to="/">
+          <button className='btn btn-secondary' onClick={moveToSetting}>Retry</button>
+        </NavLink>
     </div>
   )
 }

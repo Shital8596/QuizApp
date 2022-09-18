@@ -1,6 +1,7 @@
 
 import React,{useContext} from 'react'
 import { QuizContext } from './Context'
+import { NavLink } from 'react-router-dom'
 import useAxios from '../hooks/useAxios'
 import {Box} from "@mui/system"
 import {CircularProgress} from "@mui/material"
@@ -34,7 +35,9 @@ function Setting() {
         <div className='mb-5'>Then, Let's start. Select category and start the quiz</div>
         <form onSubmit={handleSubmit}>
             <SelectField options={response?.trivia_categories} label="Category"/>
-            <button className="btn btn-primary mt-4 btn-lg " id='btn' onClick={() => {setGameState("quiz")}}>Start Quiz</button>
+            <NavLink to="/quiz">
+                <button className="btn btn-primary mt-4 btn-lg " id='btn' onClick={() => {setGameState("quiz")}}>Start Quiz</button>
+            </NavLink>
         </form>
     </div>
   )
