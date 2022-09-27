@@ -5,6 +5,11 @@ import { QuizContext } from './Context';
 import {Box} from "@mui/system"
 import {CircularProgress} from "@mui/material"
 import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import useSound from 'use-sound'
+import correct from '../assets/correct-ans.mp3'
+import wrong from '../assets/wrong-ans.mp3'
+import click from '../assets/click.mp3'
+
 
 const getRandomInt = (max) =>{
     return Math.floor(Math.random() * Math.floor(max))    
@@ -15,13 +20,14 @@ function GetQuestions() {
     const [options, setOptions] = useState([])
     const [questionIndex, setQuestionIndex] = useState(0);
     const [optionChosen, setOptionChosen] = useState('')
-
-    
+    const [correctAns] = useSound(correct)
+    const [wrongAns] = useSound(wrong)
+    const [btnClick] = useSound(click)
+  
     
     let apiUrl = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=easy&type=multiple`
 
     const {response, error, loading} = useAxios({ url : apiUrl})
-    console.log(response)
 
     useEffect(() => {
         if(response?.results.length){
@@ -57,8 +63,10 @@ function GetQuestions() {
         setOptionChosen(e.target.value)
         
         if(response?.results[questionIndex].correct_answer === e.target.value){
+          correctAns();
           document.getElementById(a).className = "ans correct"
         }else if(response?.results[questionIndex].correct_answer !== e.target.value){
+          wrongAns();
           document.getElementById(a).className = "ans wrong"
         }else{
           document.getElementById(a).className = "ans"
@@ -70,6 +78,7 @@ function GetQuestions() {
 
 
     const nextQuestion = () =>{
+      btnClick()
         let buttons = document.querySelectorAll(".ans");
         for(let btn of buttons){
           btn.className = "ans"
@@ -78,6 +87,7 @@ function GetQuestions() {
       }
     
       const lastQuestion = (e) => {
+        btnClick()
         setQuestionIndex(prev => prev - 1)
       }
 
@@ -88,9 +98,18 @@ function GetQuestions() {
         setGameState("endScreen")
       }
 
+      const GoToSetting = () => {
+        setGameState("menu")
+      }
+
   return (
     <div className='main'>
 
+      <div className='BackBtnDiv'>
+        <NavLink to="/">
+          <button onClick={GoToSetting} >Go to Setting</button>
+        </NavLink>
+        </div>
 
         <div className='childContainer'>
         <span  className='text-warning mb-4'>Que. {questionIndex+1}/10</span>

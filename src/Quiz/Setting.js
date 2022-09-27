@@ -6,11 +6,14 @@ import useAxios from '../hooks/useAxios'
 import {Box} from "@mui/system"
 import {CircularProgress} from "@mui/material"
 import SelectField from './SelectField'
+import useSound from 'use-sound'
+import start from '../assets/start.mp3'
 
 function Setting() {
     const {response, error, loading} = useAxios({ url : "https://opentdb.com/api_category.php"})
-
+    console.log(response)
     const {setGameState} = useContext(QuizContext)
+    const [letStart] = useSound(start)
 
     if(loading){
         return(
@@ -36,7 +39,7 @@ function Setting() {
         <form onSubmit={handleSubmit}>
             <SelectField options={response?.trivia_categories} label="Category"/>
             <NavLink to="/quiz">
-                <button className="btn btn-primary mt-4 btn-lg " id='btn' onClick={() => {setGameState("quiz")}}>Start Quiz</button>
+                <button className="btn btn-primary mt-4 btn-lg " id='btn' onClick={() => { setGameState("quiz") ;letStart()}}>Start Quiz</button>
             </NavLink>
         </form>
     </div>

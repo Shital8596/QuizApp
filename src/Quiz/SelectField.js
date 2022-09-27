@@ -16,6 +16,7 @@ function SelectField(props) {
         setCategory(e.target.value)
     }
 
+
   return (
         <>
                     <select className="form-select  mb-2 " id={id} value={value} label={label} onChange={handleChange}>

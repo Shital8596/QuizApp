@@ -15,7 +15,7 @@ function EndScreen() {
         <h1>Your Score</h1>
         <h2 style={{"textAlign":"center"}}>{score}</h2>
         <NavLink to="/">
-          <button className='btn btn-secondary' onClick={moveToSetting}>Retry</button>
+          <button className='btn btn-secondary'onClick={moveToSetting} >Retry</button>
         </NavLink>
     </div>
   )

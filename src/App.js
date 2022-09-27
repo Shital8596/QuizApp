@@ -3,7 +3,6 @@ import { createContext, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EndScreen from './Quiz/EndScreen';
 import { QuizContext } from './Quiz/Context';
-import SelectField from './Quiz/SelectField';
 import Setting from './Quiz/Setting';
 import GetQuestions from './Quiz/GetQuestions';
 
